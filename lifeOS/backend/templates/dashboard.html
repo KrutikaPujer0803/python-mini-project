@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="card">
+<h2>➕ Add Task</h2>
+<form method="POST" action="/add_task">
+<input name="title" placeholder="Task name" required>
+<input type="date" name="deadline" required>
+<button>Add Task</button>
+</form>
+<ul>
+{% for t in tasks %}
+<li>{{t[2]}} — {{t[3]}}</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="card">
+<h2>🔥 Habits</h2>
+<form method="POST" action="/add_habit">
+<input name="habit" placeholder="Habit">
+<button>Add Habit</button>
+</form>
+<ul>
+{% for h in habits %}
+<li>{{h[2]}}</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="card">
+<h2>💰 Expenses</h2>
+<form method="POST" action="/add_expense">
+<input type="number" name="amount" placeholder="Amount">
+<input name="category" placeholder="Category">
+<button>Add Expense</button>
+</form>
+<ul>
+{% for e in expenses %}
+<li>{{e[2]}} - {{e[3]}}</li>
+{% endfor %}
+</ul>
+</div>
+
+<a href="/logout">Logout</a>
